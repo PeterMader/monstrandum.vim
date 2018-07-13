@@ -1,0 +1,96 @@
+*monstrandum.txt* -- display presentations within Vim
+
+==============================================================================
+CONTENTS                                *monstrandum-contents*
+
+    1. Introduction ... |monstrandum|
+    2. Installation ... |monstrandum-installation|
+    3. Usage .......... |monstrandum-usage|
+    4. Configuration .. |monstrandum-configuration|
+    5. License ........ |monstrandum-license|
+
+==============================================================================
+INTRODUCTION                            *monstrandum*
+
+Monstrandum allows you to display a text file as a presentation by splitting it
+up into slides.  Slides are separated by lines matching a pattern.  See
+|monstrandum-slide-separator|.
+
+==============================================================================
+INSTALLATION                            *monstrandum-installation*
+
+Monstrandum should be installable with any plugin manager.
+
+==============================================================================
+USAGE                                   *monstrandum-usage*
+
+:StartPresentation {file}               *:StartPresentation*
+            Runs {file} as a presentation.
+
+:NextSlide                              *:NextSlide*
+            Moves to the next slide.
+
+:PrevSlide                              *:PrevSlide*
+            Moves to the previous slide.
+
+:EndPresentation                        *:EndPresentation*
+            Ends the presentation.
+
+
+==============================================================================
+CONFIGURATION                           *monstrandum-configuration*       
+
+*g:monstrandum_new_tab*
+            Specifies whether new presentations will be opened in a new tab or
+            in a vertical split.
+            Possible values:
+                `1` (default): new presentations will be opened in a new tab
+                `0`: new presentations will be opened in a vertical split
+
+*g:monstrandum_slide_separator*         *monstrandum-slide-separator*
+            A |pattern| that specifies the slide separator.  The pattern is
+            applied to single lines.
+            Default value: `"^\\s*---\\+\\s*$"` (this matches three or more
+            dashes, optionally preceded or followed by whitespace)
+            Example:
+
+                This is the first slide.
+                ---
+                This is the second slide.
+                  ------- 
+                This is the third slide.
+
+------------------------------------------------------------------------------
+Callbacks                               *monstrandum-callbacks*
+
+Monstrandum provides three events: `PresentationStart`,
+`PresentationShowSlide`, and `PresentationEnd`. You can bind autocommands to
+these events:
+>
+    function! s:my_presentation_start ()
+        " start Goyo
+        Goyo
+
+        " arrow keys to move forward and backward, q to quit
+        noremap <buffer> <Left>  :PrevSlide<CR>
+        noremap <buffer> <Right> :NextSlide<CR>
+        noremap <buffer> q       :EndPresentation<CR>
+    endfunction
+
+    " whenever a presentation starts, call `s:my_presentation_start`
+    autocmd! User PresentationStart call <SID>my_presentation_start()
+<
+
+*PresentationStart*
+            This event fires when a presentation starts.
+
+*PresentationShowSlide*
+            This event fires when a new slide is displayed.
+
+*PresentationEnd*
+            This event fires when a presentation ends.
+
+==============================================================================
+LICENSE                             *monstrandum-license*       
+
+Monstrandum is released under the MIT license.

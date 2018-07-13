@@ -1,0 +1,17 @@
+:EndPresentation	monstrandum.txt	/*:EndPresentation*
+:NextSlide	monstrandum.txt	/*:NextSlide*
+:PrevSlide	monstrandum.txt	/*:PrevSlide*
+:StartPresentation	monstrandum.txt	/*:StartPresentation*
+PresentationEnd	monstrandum.txt	/*PresentationEnd*
+PresentationShowSlide	monstrandum.txt	/*PresentationShowSlide*
+PresentationStart	monstrandum.txt	/*PresentationStart*
+g:monstrandum_new_tab	monstrandum.txt	/*g:monstrandum_new_tab*
+g:monstrandum_slide_separator	monstrandum.txt	/*g:monstrandum_slide_separator*
+monstrandum	monstrandum.txt	/*monstrandum*
+monstrandum-callbacks	monstrandum.txt	/*monstrandum-callbacks*
+monstrandum-configuration	monstrandum.txt	/*monstrandum-configuration*
+monstrandum-contents	monstrandum.txt	/*monstrandum-contents*
+monstrandum-installation	monstrandum.txt	/*monstrandum-installation*
+monstrandum-slide-separator	monstrandum.txt	/*monstrandum-slide-separator*
+monstrandum-usage	monstrandum.txt	/*monstrandum-usage*
+monstrandum.txt	monstrandum.txt	/*monstrandum.txt*
